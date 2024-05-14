@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/widgets/custom_btn.dart';
-import 'custom_text_field.dart';
+import 'package:mafqud/core/utils/app_colors.dart';
+import 'package:mafqud/core/widgets/custom_btn.dart';
+import 'package:mafqud/features/auth/presentation/widgets/custom_text_field.dart';
 
-class CustomLoginForm extends StatefulWidget {
-  const CustomLoginForm({super.key});
+class CustomSignUpForm extends StatefulWidget {
+  const CustomSignUpForm({super.key});
 
   @override
-  State<CustomLoginForm> createState() => _CustomLoginFormState();
+  State<CustomSignUpForm> createState() => _CustomSignUpFormState();
 }
 
-class _CustomLoginFormState extends State<CustomLoginForm> {
+class _CustomSignUpFormState extends State<CustomSignUpForm> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,10 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
       key: _formKey,
       child: Column(
         children: [
+          CustomTextFormField(
+            hintText: "Name",
+            onChanged: (name) {},
+          ),
           CustomTextFormField(
             hintText: "Email",
             onChanged: (email) {},
@@ -33,13 +37,18 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
               onPressed: () {},
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+          CustomTextFormField(
+            hintText: "Mobile Phone",
+            onChanged: (mobilePhone) {},
+            keyboardType: TextInputType.number,
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
           CustomBtn(
             onPressed: () async {
               if (_formKey.currentState!.validate()) {}
             },
             backgroundColor: AppColors.primary,
-            text: "Log in",
+            text: "Sign Up",
             height: MediaQuery.of(context).size.height * 0.05,
             width: double.infinity,
             color: AppColors.primary,
@@ -47,7 +56,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
               borderRadius: BorderRadius.circular(15),
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+          const SizedBox(height: 15),
         ],
       ),
     );
