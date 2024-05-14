@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mafqud/core/routes/app_router.dart';
 import 'package:mafqud/core/utils/app_colors.dart';
-import 'package:mafqud/features/splash/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +9,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  //! This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      title: 'Mafqud',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.offWhite,
         appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.offWhite,
+          elevation: 0.0,
           centerTitle: true,
           titleTextStyle: TextStyle(
             color: AppColors.primary,
@@ -22,9 +26,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      debugShowCheckedModeBanner: false,
-      title: 'Mafqud',
-      home: const SplashView(),
+      routerConfig: router,
     );
   }
 }

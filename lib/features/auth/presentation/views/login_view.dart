@@ -7,7 +7,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mafqud'),
+        title: const Text('Log In'),
       ),
       body: Container(),
     );
