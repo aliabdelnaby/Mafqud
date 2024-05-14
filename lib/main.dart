@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/routes/app_router.dart';
-import 'package:mafqud/core/utils/app_colors.dart';
+import 'core/routes/app_router.dart';
+import 'core/utils/app_colors.dart';
 
 void main() {
   runApp(const MyApp());

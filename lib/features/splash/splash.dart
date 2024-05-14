@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/function/navigation.dart';
-import 'package:mafqud/core/utils/app_styles.dart';
+import '../../core/function/navigation.dart';
+import '../../core/utils/app_styles.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -18,11 +18,13 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Text(
           "Mafqud",
-          style: CustomTextStyle.pacificoSplash,
+          style: CustomTextStyle.pacificoSplash.copyWith(
+            fontFamily: 'Pacifico',
+          ),
         ),
       ),
     );
@@ -32,7 +34,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        customReplacementNavigate(context, "/login");
+        customReplacementNavigate(context, "/loginView");
       },
     );
   }
