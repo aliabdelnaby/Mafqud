@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Mafqud',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: AppColors.offWhite,
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.offWhite,
