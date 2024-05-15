@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/features/auth/presentation/widgets/custom_reset_password_form.dart';
-import 'package:mafqud/features/auth/presentation/widgets/custom_title_login_view.dart';
+import '../widgets/custom_reset_password_form.dart';
+import '../widgets/custom_title_login_view.dart';
 
 class ForgotPasswordView extends StatelessWidget {
   const ForgotPasswordView({super.key});
@@ -13,7 +13,7 @@ class ForgotPasswordView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+              child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.12),
             ),
             const SliverToBoxAdapter(child: CustomTitleLoginView()),
             SliverToBoxAdapter(

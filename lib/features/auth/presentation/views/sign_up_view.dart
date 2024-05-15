@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/function/navigation.dart';
-import 'package:mafqud/features/auth/presentation/widgets/custom_sign_up_form.dart';
-import 'package:mafqud/features/auth/presentation/widgets/custom_title_login_view.dart';
-import 'package:mafqud/features/auth/presentation/widgets/have_an_account.dart';
+import '../../../../core/function/navigation.dart';
+import '../widgets/custom_sign_up_form.dart';
+import '../widgets/custom_title_login_view.dart';
+import '../widgets/have_an_account.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});

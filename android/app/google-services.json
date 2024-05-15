@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250572354728",
+    "project_id": "mafqud-15648",
+    "storage_bucket": "mafqud-15648.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250572354728:android:235cb3ab1095bb2f51fe9d",
+        "android_client_info": {
+          "package_name": "com.example.mafqud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9YRajEdTaUGPGyk-HMP1e9WGg03rItnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

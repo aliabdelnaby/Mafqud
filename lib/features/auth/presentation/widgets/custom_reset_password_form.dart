@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mafqud/core/utils/app_colors.dart';
-import 'package:mafqud/core/widgets/custom_btn.dart';
-import 'package:mafqud/features/auth/presentation/widgets/custom_text_field.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widgets/custom_btn.dart';
+import 'custom_text_field.dart';
 
 class CustomResetPasswordForm extends StatefulWidget {
   const CustomResetPasswordForm({super.key});
