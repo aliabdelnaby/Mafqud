@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/function/navigation.dart';
@@ -13,7 +14,11 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    delayedNavigate();
+    FirebaseAuth.instance.currentUser == null
+        ? delayedNavigate(context, '/loginView')
+        : FirebaseAuth.instance.currentUser!.emailVerified == true
+            ? delayedNavigate(context, "/homeView")
+            : delayedNavigate(context, "/loginView");
     super.initState();
   }
 
@@ -31,11 +36,11 @@ class _SplashViewState extends State<SplashView> {
     );
   }
 
-  void delayedNavigate() {
+  void delayedNavigate(contex, path) {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        customReplacementNavigate(context, "/loginView");
+        customReplacementNavigate(context, path);
       },
     );
   }

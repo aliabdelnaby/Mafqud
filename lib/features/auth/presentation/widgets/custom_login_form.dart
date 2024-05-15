@@ -17,13 +17,13 @@ class CustomLoginForm extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccessState) {
           if (FirebaseAuth.instance.currentUser!.emailVerified) {
-            customReplacementNavigate(context, "/homeView");
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text("Welcome Back!"),
                 backgroundColor: AppColors.primary,
               ),
             );
+            customReplacementNavigate(context, "/homeView");
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
