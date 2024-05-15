@@ -93,6 +93,9 @@ class AuthCubit extends Cubit<AuthState> {
     }
     emit(ObscurePasswordTextUpdateState());
   }
+  void signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   // Future<void> addUserProfile() async {
   //   CollectionReference users = FirebaseFirestore.instance.collection("users");

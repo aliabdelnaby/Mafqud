@@ -1,55 +1,99 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mafqud/core/function/navigation.dart';
+import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
+import 'package:mafqud/features/auth/cubit/auth_state.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widgets/custom_btn.dart';
 import 'custom_text_field.dart';
 
-class CustomLoginForm extends StatefulWidget {
+class CustomLoginForm extends StatelessWidget {
   const CustomLoginForm({super.key});
 
   @override
-  State<CustomLoginForm> createState() => _CustomLoginFormState();
-}
-
-class _CustomLoginFormState extends State<CustomLoginForm> {
-  final _formKey = GlobalKey<FormState>();
-  @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          CustomTextFormField(
-            hintText: "Email",
-            onChanged: (email) {},
-          ),
-          CustomTextFormField(
-            hintText: "Password",
-            onChanged: (password) {},
-            suffixIcon: IconButton(
-              color: AppColors.primary,
-              icon: const Icon(
-                Icons.visibility_off_outlined,
+    return BlocConsumer<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is LoginSuccessState) {
+          if (FirebaseAuth.instance.currentUser!.emailVerified) {
+            customReplacementNavigate(context, "/homeView");
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Welcome Back!"),
+                backgroundColor: AppColors.primary,
               ),
-              onPressed: () {},
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Please Verify Your Account"),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
+        } else if (state is LoginFailureState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errMessage),
+              backgroundColor: Colors.red,
             ),
+          );
+        }
+      },
+      builder: (context, state) {
+        final authCubit = BlocProvider.of<AuthCubit>(context);
+        return Form(
+          key: authCubit.loginForm,
+          child: Column(
+            children: [
+              CustomTextFormField(
+                hintText: "Email",
+                onChanged: (email) {
+                  authCubit.email = email;
+                },
+              ),
+              CustomTextFormField(
+                hintText: "Password",
+                onChanged: (password) {
+                  authCubit.password = password;
+                },
+                suffixIcon: IconButton(
+                  color: AppColors.primary,
+                  icon: Icon(
+                    authCubit.obscurePasswordTextValue == true
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                  ),
+                  onPressed: () {
+                    authCubit.obscurePasswordText();
+                  },
+                ),
+                obscureText: authCubit.obscurePasswordTextValue,
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              state is LoginLoadingState
+                  ? const CircularProgressIndicator(color: AppColors.primary)
+                  : CustomBtn(
+                      onPressed: () async {
+                        if (authCubit.loginForm.currentState!.validate()) {
+                          await authCubit.loginWithEmailAndPassword();
+                        }
+                      },
+                      backgroundColor: AppColors.primary,
+                      text: "Log in",
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: double.infinity,
+                      color: AppColors.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            ],
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-          CustomBtn(
-            onPressed: () async {
-              if (_formKey.currentState!.validate()) {}
-            },
-            backgroundColor: AppColors.primary,
-            text: "Log in",
-            height: MediaQuery.of(context).size.height * 0.05,
-            width: double.infinity,
-            color: AppColors.primary,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-        ],
-      ),
+        );
+      },
     );
   }
 }

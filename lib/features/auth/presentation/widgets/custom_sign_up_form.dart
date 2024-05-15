@@ -83,7 +83,7 @@ class CustomSignUpForm extends StatelessWidget {
                   : CustomBtn(
                       onPressed: () async {
                         if (authCubit.signupForm.currentState!.validate()) {
-                          authCubit.signUpWithEmailAndPassword();
+                          await authCubit.signUpWithEmailAndPassword();
                         }
                       },
                       backgroundColor: AppColors.primary,
