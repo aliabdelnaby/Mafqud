@@ -30,9 +30,19 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ],
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.menu_rounded,
+            color: AppColors.primary,
+            size: 38,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          customNavigate(context, '/addPostView');
+        },
         tooltip: "Add Post",
         backgroundColor: AppColors.primary,
         child: const Icon(
@@ -42,7 +52,7 @@ class HomeView extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {
@@ -79,7 +89,7 @@ class CustomCardMafqudItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(

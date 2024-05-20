@@ -10,5 +10,5 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   checkStateChanges();
-  runApp(const MyApp());
+  runApp(const MafqudApp());
 }
