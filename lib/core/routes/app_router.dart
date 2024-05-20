@@ -5,7 +5,7 @@ import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
 import '../../features/auth/presentation/views/forgot_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
-import '../../features/home/home_view.dart';
+import '../../features/home/views/home_view.dart';
 import '../../features/splash/splash.dart';
 
 final GoRouter router = GoRouter(
