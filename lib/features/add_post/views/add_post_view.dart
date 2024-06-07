@@ -53,8 +53,8 @@ class _AddPostViewState extends State<AddPostView> {
                 onPressed: () async {
                   if (formKey.currentState!.validate() &&
                       imagePickerKey.currentState!.validate()) {
-                        //! Logic
-                      }
+                    //! Logic
+                  }
                 },
                 text: "Add Post",
                 height: MediaQuery.of(context).size.height * 0.05,
@@ -185,6 +185,7 @@ class CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
         InkWell(
           onTap: pickImage,
           child: CircleAvatar(
+            backgroundImage: file == null ? null : FileImage(file!),
             backgroundColor: AppColors.primary,
             radius: 80,
             child: file == null
@@ -193,10 +194,7 @@ class CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
                     color: Colors.white,
                     size: 50,
                   )
-                : ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.file(file!),
-                  ),
+                : const SizedBox(),
           ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.01),
