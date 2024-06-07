@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mafqud/features/add_post/views/add_post_view.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
+import 'package:mafqud/features/profile/views/profile_view.dart';
 
 import '../../features/auth/presentation/views/forgot_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
@@ -46,6 +47,10 @@ final GoRouter router = GoRouter(
             create: (context) => AuthCubit(),
             child: const AddPostView(),
           )),
+    ),
+    GoRoute(
+      path: '/profileView',
+      builder: ((context, state) => const ProfileView()),
     ),
   ],
 );
