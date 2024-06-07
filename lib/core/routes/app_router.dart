@@ -2,12 +2,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mafqud/features/add_post/views/add_post_view.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
+import 'package:mafqud/features/home/presentation/cubit/home_cubit.dart';
+import 'package:mafqud/features/my_posts/views/my_post_view.dart';
 import 'package:mafqud/features/profile/views/profile_view.dart';
+import 'package:mafqud/features/settings/views/settings_view.dart';
 
 import '../../features/auth/presentation/views/forgot_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
-import '../../features/home/views/main_view.dart';
+import '../../features/home/presentation/views/main_view.dart';
 import '../../features/splash/splash.dart';
 
 final GoRouter router = GoRouter(
@@ -32,7 +35,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/homeView',
-      builder: ((context, state) => const MainView()),
+      builder: ((context, state) => BlocProvider(
+            create: (context) => HomeCubit(),
+            child: const MainView(),
+          )),
     ),
     GoRoute(
       path: '/forgotPasswordView',
@@ -51,6 +57,14 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/profileView',
       builder: ((context, state) => const ProfileView()),
+    ),
+    GoRoute(
+      path: '/myPostsView',
+      builder: ((context, state) => const MyPostsView()),
+    ),
+    GoRoute(
+      path: '/settingsView',
+      builder: ((context, state) => const SettingsView()),
     ),
   ],
 );

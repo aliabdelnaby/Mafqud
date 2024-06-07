@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:mafqud/core/function/navigation.dart';
 import 'package:mafqud/core/utils/app_colors.dart';
 import 'package:mafqud/core/utils/app_styles.dart';
 import 'package:mafqud/core/widgets/custom_btn.dart';
@@ -24,6 +25,15 @@ class _AddPostViewState extends State<AddPostView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Post'),
+        leading: IconButton(
+          onPressed: () {
+            customPop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: AppColors.primary,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),

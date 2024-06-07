@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mafqud/core/function/navigation.dart';
+import 'package:mafqud/core/utils/app_colors.dart';
 import 'package:mafqud/core/utils/app_styles.dart';
 import 'package:mafqud/features/settings/widgets/custom_settings_list_tile.dart';
 
@@ -8,6 +12,19 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {
+            customPop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: AppColors.primary,
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.03),
@@ -49,7 +66,16 @@ class SettingsView extends StatelessWidget {
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.01),
           CustomSettingsListTile(
-            onTap: () {},
+            onTap: () async {
+              GoRouter.of(context).go('/loginView');
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("Logged out successfully"),
+                  backgroundColor: AppColors.primary,
+                ),
+              );
+              await FirebaseAuth.instance.signOut();
+            },
             title: "Sign out",
             icon: Icons.logout_outlined,
           ),

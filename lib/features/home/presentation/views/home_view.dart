@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mafqud/core/function/navigation.dart';
 import 'package:mafqud/core/utils/app_colors.dart';
 import 'package:mafqud/core/utils/app_styles.dart';
-import 'package:mafqud/features/home/widgets/custom_card_mafqud_item.dart';
+import 'package:mafqud/features/home/presentation/widgets/custom_card_mafqud_item.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
