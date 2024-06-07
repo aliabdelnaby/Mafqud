@@ -134,6 +134,8 @@ class _MainViewState extends State<MainView> {
         ),
       ),
       appBar: AppBar(
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
         title: Text(
           'Mafqud',
           style: CustomTextStyle.pacificoSplash.copyWith(
