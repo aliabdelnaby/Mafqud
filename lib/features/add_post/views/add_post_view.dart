@@ -40,7 +40,7 @@ class _AddPostViewState extends State<AddPostView> {
                 hintText: "Age (Years)",
                 keyboardType: TextInputType.number,
               ),
-              const CustomDropDownList(),
+              const CustomAddPostDropDownList(),
               const CustomTextFormField(
                 hintText: "Contact number",
                 keyboardType: TextInputType.number,
@@ -69,14 +69,15 @@ class _AddPostViewState extends State<AddPostView> {
   }
 }
 
-class CustomDropDownList extends StatefulWidget {
-  const CustomDropDownList({super.key});
+class CustomAddPostDropDownList extends StatefulWidget {
+  const CustomAddPostDropDownList({super.key});
 
   @override
-  State<CustomDropDownList> createState() => _CustomDropDownListState();
+  State<CustomAddPostDropDownList> createState() =>
+      _CustomAddPostDropDownListState();
 }
 
-class _CustomDropDownListState extends State<CustomDropDownList> {
+class _CustomAddPostDropDownListState extends State<CustomAddPostDropDownList> {
   final List<String> governorates = [
     'Cairo',
     'Giza',
