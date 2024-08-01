@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mafqud/core/function/navigation.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
 import 'package:mafqud/features/auth/cubit/auth_state.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -22,7 +22,7 @@ class CustomResetPasswordForm extends StatelessWidget {
               backgroundColor: AppColors.primary,
             ),
           );
-          customReplacementNavigate(context, '/loginView');
+          context.go("/loginView");
         } else if (state is ResetPasswordFailureState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -59,7 +59,6 @@ class CustomResetPasswordForm extends StatelessWidget {
                         }
                       },
                       text: "Send link to reset password",
-                      height: MediaQuery.of(context).size.height * 0.05,
                       width: double.infinity,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),

@@ -9,7 +9,6 @@ class CustomMyMafqudCard extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.53,
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -40,13 +39,11 @@ class CustomMyMafqudCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
                 "https://www.bishopandsewell.co.uk/wp-content/uploads/2019/08/Missing-Person-shutterstock_752963539-300x280.jpg",
-                height: MediaQuery.of(context).size.height * 0.23,
-                fit: BoxFit.fill,
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mafqud/core/function/navigation.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mafqud/features/auth/cubit/auth_cubit.dart';
 import 'package:mafqud/features/auth/cubit/auth_state.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -23,7 +23,7 @@ class CustomLoginForm extends StatelessWidget {
                 backgroundColor: AppColors.primary,
               ),
             );
-            customReplacementNavigate(context, "/homeView");
+            context.go("/homeView");
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -83,7 +83,6 @@ class CustomLoginForm extends StatelessWidget {
                       },
                       backgroundColor: AppColors.primary,
                       text: "Log in",
-                      height: MediaQuery.of(context).size.height * 0.05,
                       width: double.infinity,
                       color: AppColors.primary,
                       shape: RoundedRectangleBorder(

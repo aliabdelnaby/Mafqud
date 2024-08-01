@@ -11,7 +11,8 @@ class MyPostsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Posts'),
-        surfaceTintColor: Colors.transparent,  leading: IconButton(
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
           onPressed: () {
             customPop(context);
           },

@@ -76,7 +76,7 @@ class SettingsView extends StatelessWidget {
               );
               await FirebaseAuth.instance.signOut();
             },
-            title: "Sign out",
+            title: "Log out",
             icon: Icons.logout_outlined,
           ),
           const Divider(endIndent: 15, indent: 15),
@@ -91,6 +91,7 @@ class SettingsView extends StatelessWidget {
             "Version 1.0.0",
             textAlign: TextAlign.center,
           ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
         ],
       ),
     );

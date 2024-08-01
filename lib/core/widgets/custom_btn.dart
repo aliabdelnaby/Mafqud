@@ -8,8 +8,8 @@ class CustomBtn extends StatelessWidget {
     this.color,
     required this.text,
     this.onPressed,
-    required this.height,
-    required this.width,
+    this.height,
+    this.width,
     this.shape,
     required this.backgroundColor,
   });
@@ -17,8 +17,8 @@ class CustomBtn extends StatelessWidget {
   final Color? color;
   final String text;
   final VoidCallback? onPressed;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final OutlinedBorder? shape;
   final Color backgroundColor;
 

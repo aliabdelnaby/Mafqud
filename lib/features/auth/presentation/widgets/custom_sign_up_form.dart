@@ -89,7 +89,6 @@ class CustomSignUpForm extends StatelessWidget {
                       },
                       backgroundColor: AppColors.primary,
                       text: "Sign Up",
-                      height: MediaQuery.of(context).size.height * 0.05,
                       width: double.infinity,
                       color: AppColors.primary,
                       shape: RoundedRectangleBorder(
