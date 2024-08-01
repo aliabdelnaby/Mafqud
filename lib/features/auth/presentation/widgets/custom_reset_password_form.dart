@@ -43,6 +43,7 @@ class CustomResetPasswordForm extends StatelessWidget {
                 onChanged: (email) {
                   authCubit.email = email;
                 },
+                keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               state is ResetPasswordLoadingState

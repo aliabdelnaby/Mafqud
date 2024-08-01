@@ -49,6 +49,7 @@ class CustomSignUpForm extends StatelessWidget {
                 onChanged: (email) {
                   authCubit.email = email;
                 },
+                keyboardType: TextInputType.emailAddress,
               ),
               CustomTextFormField(
                 hintText: "Password",
